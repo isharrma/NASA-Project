@@ -15,8 +15,8 @@ app.use(
 );
 app.use(morgan());
 app.use(express.json());
-app.use(planetRouter);
-app.use(launchRouter);
+app.use("/planets", planetRouter);
+app.use("/launches", launchRouter);
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));

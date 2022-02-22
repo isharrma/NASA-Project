@@ -22,7 +22,7 @@ const launchSchema = new mongoose.Schema({
     required: true,
   },
   customers: [String],
-  upcomig: {
+  upcoming: {
     type: Boolean,
     required: true,
   },

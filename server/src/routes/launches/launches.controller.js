@@ -5,9 +5,13 @@ const {
   existsLaunchWithId,
 } = require("../../models/launches.model");
 
+const { getPagination } = require("../../services/query");
+
 // Displays all the launches
 async function httpGetAllLaunches(req, res) {
-  return res.status(200).json(await getAllLaunches());
+  const { skip, limit } = getPagination(req.query);
+  const launches = await getAllLaunches(skip, limit);
+  return res.status(200).json(launches);
 }
 
 // Add new launches after taking input from user
